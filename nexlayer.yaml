@@ -1,0 +1,18 @@
+application:
+  name: syncthing
+  pods:
+  - name: app
+    image: lscr.io/linuxserver/syncthing:latest
+    path: /
+    servicePorts:
+    - 8384
+    vars:
+      PUID: "1000"
+      PGID: "1000"
+    volumes:
+    - name: syncthing-config
+      mountPath: /config
+      size: 1Gi
+    - name: syncthing-data
+      mountPath: /data1
+      size: 20Gi
